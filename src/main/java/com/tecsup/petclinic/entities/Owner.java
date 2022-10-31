@@ -1,8 +1,7 @@
 package com.tecsup.petclinic.entities;
 
-import java.sql.Date;
 
-import javax.persistence.Column;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -18,6 +17,39 @@ public class Owner {
 		private String address;
 		private String city;
 		private String telephone;
+		
+	    public Owner() {
+	    }
+
+	    public Owner(long id, String first_name, String last_name,String city, String telephone) {
+	        super();
+	        this.id = id;
+	        this.first_name = first_name;
+	        this.last_name = last_name;
+	        this.city = city;
+	        this.telephone = telephone;
+	    }
+
+	    public Owner(String first_name,String last_name,String city,String telephone) {
+	        super();
+	        this.first_name = first_name;
+	        this.last_name = last_name;
+	        this.city = city;
+	        this.telephone = telephone;
+	    }
+	    
+	    public Owner(String first_name,String last_name) {
+	        super();
+	        this.first_name = first_name;
+	        this.last_name = last_name;
+
+	    }
+	    
+	    public Owner(String first_name) {
+	        super();
+	        this.first_name = first_name;
+
+	    }
 		
 		public long getId() {
 			return id;

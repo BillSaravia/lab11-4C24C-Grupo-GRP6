@@ -27,17 +27,17 @@ public class OwnerServiceImpl implements OwnerService {
 
 	/**
 	 * 
-	 * @param pet
+	 * @param owner
 	 * @return
 	 */
 	@Override
-	public Owner create(Owner owner) {
+	public Owner create1(Owner owner) {
 		return ownerRepository.save(owner);
 	}
 
 	/**
 	 * 
-	 * @param pet
+	 * @param owner
 	 * @return
 	 */
 	@Override
@@ -49,12 +49,12 @@ public class OwnerServiceImpl implements OwnerService {
 	/**
 	 * 
 	 * @param id
-	 * @throws PetNotFoundException
+	 * @throws OwnerNotFoundException
 	 */
 	@Override
 	public void delete(Long id) throws OwnerNotFoundException{
 
-		Owner owner = findById(id);
+		Owner owner = findById1(id);
 		ownerRepository.delete(owner);
 
 	}
@@ -65,7 +65,7 @@ public class OwnerServiceImpl implements OwnerService {
 	 * @return
 	 */
 	@Override
-	public Owner findById(long id) throws OwnerNotFoundException {
+	public Owner findById1(long id) throws OwnerNotFoundException {
 
 		Optional<Owner> owner = ownerRepository.findById(id);
 
@@ -110,7 +110,7 @@ public class OwnerServiceImpl implements OwnerService {
 	}
 
 	@Override
-	public Owner update(Owner owner) {
+	public Owner update1(Owner owner) {
 		// TODO Auto-generated method stub
 		return null;
 	}

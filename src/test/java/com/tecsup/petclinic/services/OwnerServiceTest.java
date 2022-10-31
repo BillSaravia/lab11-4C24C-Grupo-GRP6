@@ -7,6 +7,8 @@ import org.springframework.boot.test.context.SpringBootTest;
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.CoreMatchers.notNullValue;
 import static org.hamcrest.MatcherAssert.assertThat;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.fail;
 
 import java.util.List;
 
@@ -16,8 +18,8 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
-import com.tecsup.petclinic.entities.Pet;
-import com.tecsup.petclinic.exception.PetNotFoundException;
+import com.tecsup.petclinic.entities.Owner;
+import com.tecsup.petclinic.exception.OwnerNotFoundException;
 
 @SpringBootTest
 public class OwnerServiceTest {
@@ -43,38 +45,37 @@ public class OwnerServiceTest {
 			
 			owner = ownerService.findById(ID);
 			
-		} catch (OwnertNotFoundException e) {
+		} catch (OwnerNotFoundException e) {
 			fail(e.getMessage());
 		}
 		logger.info("" + owner);
 
-		assertEquals(NAME, owner.getName());
+		assertEquals(NAME, owner.getFirst_name());
 
 	}
 	
 	
 	
 	
-	public void testDeletePet() {
+	public void testDeleteOwner() {
 
-		String PET_NAME = "Bird";
-		int OWNER_ID = 1;
-		int TYPE_ID = 1;
+		String first_name = "Bill";
 
-		Pet pet = new Pet(PET_NAME, OWNER_ID, TYPE_ID);
-		pet = petService.create(pet);
-		logger.info("" + pet);
+
+		Owner owner = new Owner(first_name);
+		owner = ownerService.create(owner);
+		logger.info("" + owner);
 
 		try {
-			petService.delete(pet.getId());
-		} catch (PetNotFoundException e) {
+			ownerService.delete(owner.getId());
+		} catch (OwnerNotFoundException e) {
 			assertThat(e.getMessage(), false);
 		}
 			
 		try {
-			petService.findById(pet.getId());
+			ownerService.findById(owner.getId());
 			assertThat(true, is(false));
-		} catch (PetNotFoundException e) {
+		} catch (OwnerNotFoundException e) {
 			assertThat(true, is(true));
 		} 				
 
