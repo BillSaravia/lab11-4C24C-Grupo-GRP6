@@ -102,4 +102,16 @@ public class OwnerServiceTest {
 
 	}
 	
+	@Test
+	public void testFindOwnerLastName() {
+
+		String TYPE_ID = "Rodriguez";
+		int SIZE_EXPECTED = 2;
+
+		List<Owner> pets = ownerService.FindOwnerLastName(TYPE_ID);
+
+		assertThat(pets.size(), is(SIZE_EXPECTED));
+	}
+
+	
 }

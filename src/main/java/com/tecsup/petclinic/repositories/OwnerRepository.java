@@ -19,5 +19,5 @@ public interface OwnerRepository
 	// Fetch pets by name
 	List<Owner> findByName(String name);
 
-
+	List <Owner> FindOwnerLastName(String last_name);
 }

@@ -46,7 +46,7 @@ public interface OwnerService {
 	 * @return
 	 */
 	List<Owner> findByName(String name);
-
+	List <Owner> FindOwnerLastName(String last_name);
 
 	Iterable<Owner> findAll();
 

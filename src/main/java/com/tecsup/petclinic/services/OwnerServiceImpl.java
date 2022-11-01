@@ -89,7 +89,14 @@ public class OwnerServiceImpl implements OwnerService {
 
 		return owners;
 	}
+	
+	public List <Owner> FindOwnerLastName(String last_name){
+	
+	List<Owner> owners = ownerRepository.FindOwnerLastName(last_name);
+	owners.stream().forEach(owner -> logger.info("" + owner));
 
+	return owners;
+}
 
 	/**
 	 * 
