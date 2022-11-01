@@ -103,7 +103,7 @@ public class OwnerServiceTest {
 	}
 	
 	@Test
-	public void tFindOwnerLastName() {
+	public void testFindOwnerLastName() {
 
 		String TYPE_ID = "Rodriguez";
 		int SIZE_EXPECTED = 2;
