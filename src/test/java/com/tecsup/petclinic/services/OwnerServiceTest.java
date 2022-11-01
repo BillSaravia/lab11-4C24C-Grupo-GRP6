@@ -82,7 +82,7 @@ public class OwnerServiceTest {
 	}
 	
 	@Test
-	public void testCreateOwner() {
+	public void tesCreateOwner() {
 
 		String OWNER_NAME = "Claudia";
 		String LAST_NAME = "Rojas";
