@@ -38,7 +38,7 @@ public class OwnerServiceTest {
 	public void testFindOwnerById() {
 
 		long ID = 1;
-		String NAME = "Jaime";
+		String NAME = "George";
 		Owner owner = null;
 		
 		try {
@@ -78,6 +78,27 @@ public class OwnerServiceTest {
 		} catch (OwnerNotFoundException e) {
 			assertThat(true, is(true));
 		} 				
+
+	}
+	
+	@Test
+	public void testCreateOwner() {
+
+		String OWNER_NAME = "Claudia";
+		String LAST_NAME = "Rojas";
+		String TELEPHONE="989554125";
+
+		Owner owner = new Owner(OWNER_NAME, LAST_NAME,TELEPHONE );
+		
+		Owner ownerCreated = ownerService.create(owner);
+		
+		logger.info("Owner CREATED :" + ownerCreated);
+
+		//          ACTUAL                 , EXPECTED 
+		assertThat(ownerCreated.getId()      , notNullValue());
+		assertThat(ownerCreated.getFirst_name()    , is(OWNER_NAME));
+		assertThat(ownerCreated.getLast_name(), is(LAST_NAME));
+		assertThat(ownerCreated.getTelephone()  , is(TELEPHONE));
 
 	}
 	
