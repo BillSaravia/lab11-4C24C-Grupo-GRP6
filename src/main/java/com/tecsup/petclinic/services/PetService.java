@@ -1,5 +1,6 @@
 package com.tecsup.petclinic.services;
 
+import java.sql.Date;
 import java.util.List;
 
 import com.tecsup.petclinic.entities.Pet;
@@ -65,6 +66,8 @@ public interface PetService {
 	 * 
 	 * @return
 	 */
+	List<Pet> findBybirth_date(Date birth_date);
+	
 	Iterable<Pet> findAll();
 
 }

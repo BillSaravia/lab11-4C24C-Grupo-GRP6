@@ -1,6 +1,6 @@
 package com.tecsup.petclinic.entities;
 
-import java.sql.Date;
+import java.sql.*;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -44,6 +44,8 @@ public class Pet {
 		this.ownerId = owner_id;
 	}
 
+
+
 	public long getId() {
 		return id;
 	}
@@ -64,16 +66,24 @@ public class Pet {
 		return typeId;
 	}
 
-	public void setTypeId(int type_id) {
-		this.typeId = type_id;
+	public void setTypeId(int typeId) {
+		this.typeId = typeId;
 	}
 
 	public int getOwnerId() {
 		return ownerId;
 	}
 
-	public void setOwnerId(int owner_id) {
-		this.ownerId = owner_id;
+	public void setOwnerId(int ownerId) {
+		this.ownerId = ownerId;
+	}
+
+	public Date getBirth_date() {
+		return birth_date;
+	}
+
+	public void setBirth_date(Date birth_date) {
+		this.birth_date = birth_date;
 	}
 
 	@Override
